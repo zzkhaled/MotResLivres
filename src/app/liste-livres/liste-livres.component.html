@@ -1,0 +1,22 @@
+
+<input class="search" [(ngModel)]="searchRequete" placeholder="Recheche des livres">
+<button (click)="searchLivre(searchRequete)" type="button"> trouver le livre</button>
+
+<p></p>
+<div *ngIf="livres">
+
+  <div *ngFor="let livre of livres">
+    <img src="{{livre.volumeInfo.imageLinks.thumbnail}}" >
+    <h2>{{livre.volumeInfo.title}} </h2>
+    <p> Auteur: {{livre.volumeInfo.authors}}</p>
+    <p> Catégorie: {{livre.volumeInfo.categories}}</p>
+    <p> Catégorie: {{livre.volumeInfo.description}}
+    <p> Langue: {{livre.volumeInfo.language}}</p>
+    <a href="{{livre.saleInfo.buyLink}}" target="_blank"> <input type="button" value="Acheter"> </a>
+    <p></p>
+</div>
+
+<footer>
+  <button (click)="goBack()">go back</button>
+</footer>
+
